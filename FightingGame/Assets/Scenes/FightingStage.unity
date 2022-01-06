@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20aeb2d11b4dc024e87eaa61adc66456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heroName: King
+  heroName: Queen
   enemyName: Minion
 --- !u!4 &396004874
 Transform:

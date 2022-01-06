@@ -27,10 +27,19 @@ public class DataManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("initialising...");
         // Pull data from db
         heroStat = PullData(heroName);
         enemyStat = PullData(enemyName);
 
+        Debug.Log("pulled data. test: herostat: " + heroStat.MovementSpeed);
+
+        StartCoroutine(DelayedEventFiring());
+    }
+
+    IEnumerator DelayedEventFiring()
+    {
+        yield return null;
         dataPulled?.Invoke(this, EventArgs.Empty);
     }
 
