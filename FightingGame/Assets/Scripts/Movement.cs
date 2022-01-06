@@ -1,20 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Movement : MonoBehaviour
 {
-    public float movementSpeed;
+    public float movementSpeed = 0f;
 
     public bool isTakingInput = true;
 
     public Vector3 movementVector;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        // pull data from the database.
-        PullData();
+        DataManager.instance.dataPulled += OnDataPulled;
+    }
+
+    private void OnDisable()
+    {
+        DataManager.instance.dataPulled -= OnDataPulled;
     }
 
     // Update is called once per frame
@@ -51,12 +55,10 @@ public class Movement : MonoBehaviour
         }
     }
 
-    public void PullData()
+    public void OnDataPulled(object sender, EventArgs e)
     {
-        // Use Andy's class to pull data.
-
-
-        // Apply data pulled
-        movementSpeed = 1f;
+        
+        movementSpeed = DataManager.instance.HeroStat.MovementSpeed;
+        Debug.Log("Successfully pulled data! updating movement speed for hero: " + movementSpeed);
     }
 }

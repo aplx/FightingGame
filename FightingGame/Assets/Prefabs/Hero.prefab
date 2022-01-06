@@ -107,6 +107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2105829ab9c0b4f42b97767bb971e2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 1
+  movementSpeed: 0
   isTakingInput: 1
   movementVector: {x: 0, y: 0, z: 0}
